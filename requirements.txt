@@ -1,0 +1,9 @@
+tornado==4.5
+# Task queues
+celery>=3.1.24,<4.0.0
+# Messaging library (AMQP)
+kombu>=3.0.36,<3.1
+# Promises (celery dependency)
+vine==1.1.3
+# Caching utilities
+cachetools==2.0.0
