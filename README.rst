@@ -2,6 +2,9 @@
 WS Celery
 =========
 
+.. image:: https://travis-ci.org/johan-sports/wscelery.svg?branch=master
+    :target: https://travis-ci.org/johan-sports/wscelery
+
 Real time celery monitoring using websockets. Inspired by `flower <https://github.com/mher/flower>`__.
 
 ************
