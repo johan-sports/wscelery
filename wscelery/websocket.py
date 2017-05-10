@@ -5,13 +5,23 @@ import logging
 
 import tornado.websocket
 
+from wscelery.utils import select_keys
+
 logger = logging.getLogger(__name__)
+
+
+def parse_event(event):
+    default_keys = ['uuid', 'timestamp']
+    if event['type'] == 'task-successful':
+        return select_keys(event, default_keys + ['result'])
+    elif event['type'] == 'task-failed':
+        return event
+    return select_keys(event, default_keys)
 
 
 class WebSocketHandler(tornado.websocket.WebSocketHandler):
     def initialize(self, events):
         self.events = events
-        self.closed = True
 
     # Allow any origin for now
     # FIXME: Security concern
@@ -19,13 +29,11 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
         return True
 
     def _handle_event(self, event):
-        if not self.closed:
-            self.write_message(json.dumps(event))
+        client_event = parse_event(event)
+        self.write_message(json.dumps(client_event))
 
     def open(self):
-        self.closed = False
-        # TODO: Make this a URL param
-        self.task_id = self.get_argument('id')
+        self.task_id = self.get_argument('task_id')
         self.events.add_listener(self.task_id, self._handle_event)
 
     def on_message(self):
@@ -34,5 +42,4 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
         pass
 
     def on_close(self):
-        self.closed = True
         self.events.remove_listener(self.task_id)

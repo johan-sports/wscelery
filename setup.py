@@ -48,6 +48,7 @@ setup(name='wscelery',
       keywords=['celery', 'websocket', 'monitoring'],
       packages=find_packages(exclude=['tests', 'tests.*']),
       install_requires=get_requirements('requirements.txt'),
+      test_suite='tests',
       entry_points={
           'console_scripts': [
               'wscelery = wscelery.__main__:main',

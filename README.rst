@@ -16,8 +16,14 @@ Quickstart
 
 ::
 
-    $ pip install -r requirements.txt
-    $ python real_celery.py
+    $ python setup.py install
+    $ wscelery
+
+**********
+Caveats
+**********
+
+* TLS encryption not (yet) supported
 
 **********
 License
