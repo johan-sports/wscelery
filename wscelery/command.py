@@ -49,7 +49,7 @@ class WsCeleryCommand(Command):
             name = env_var_name.replace(self.ENV_VAR_PREFIX, '', 1).lower()
             value = os.environ[env_var_name]
             try:
-                option = options._option[name]
+                option = options._options[name]
             except KeyError:
                 option = options._options[name.replace('_', '-')]
             if option.multiple:

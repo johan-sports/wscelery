@@ -36,8 +36,8 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
     def _handle_event(self, event):
         self.write_message(parse_event(event))
 
-    def open(self):
-        self.task_id = self.get_argument('id')
+    def open(self, task_id):
+        self.task_id = task_id
         self.events.add_listener(self.task_id, self._handle_event)
 
     def on_message(self):
