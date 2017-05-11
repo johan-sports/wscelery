@@ -1,26 +1,26 @@
 #!/usr/bin/env python3
 
-import json
 import logging
 
 import tornado.websocket
 
-from wscelery.utils import select_keys
+from wscelery.utils import exclude_keys
 
 logger = logging.getLogger(__name__)
 
 
 def parse_event(event):
-    default_keys = ['uuid', 'timestamp']
-    if event['type'] == 'task-successful':
-        return select_keys(event, default_keys + ['result'])
-    elif event['type'] == 'task-failed':
-        return event
-    return select_keys(event, default_keys)
+    return exclude_keys(event, (
+        'hostname',
+        'pid',
+        'queue',
+        'exchange',
+    ))
 
 
 class WebSocketHandler(tornado.websocket.WebSocketHandler):
     def initialize(self, events):
+        self.task_id = None
         self.events = events
 
     # Allow any origin for now
@@ -29,11 +29,10 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
         return True
 
     def _handle_event(self, event):
-        client_event = parse_event(event)
-        self.write_message(json.dumps(client_event))
+        self.write_message(parse_event(event))
 
     def open(self):
-        self.task_id = self.get_argument('task_id')
+        self.task_id = self.get_argument('id')
         self.events.add_listener(self.task_id, self._handle_event)
 
     def on_message(self):
@@ -42,4 +41,5 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
         pass
 
     def on_close(self):
-        self.events.remove_listener(self.task_id)
+        if self.task_id:
+            self.events.remove_listener(self.task_id)

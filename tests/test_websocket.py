@@ -15,4 +15,7 @@ class WebSocketTestCase(AsyncHTTPTestCase):
     @gen.coroutine
     def close(self, ws):
         ws.close()
-        yield self.close_future
+
+
+class WebSocketTest(WebSocketTestCase):
+    pass
