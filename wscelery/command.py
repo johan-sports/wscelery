@@ -67,9 +67,9 @@ class WsCeleryCommand(Command):
         if origin is not None:
             try:
                 re.compile(origin)
-            except Exception as e:
-                logger.exception(e)
-                self.die('Invalid `allow_origin` regex: r"%s"' % origin)
+            except Exception:
+                msg = 'Invalid `allow_origin` regex r"{}"'
+                raise Command.UsageError(msg.format(origin))
 
     def setup_logging(self):
         if options.debug and options.logging == 'info':
