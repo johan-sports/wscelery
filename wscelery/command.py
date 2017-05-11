@@ -1,6 +1,7 @@
 import atexit
 import logging
 import os
+import re
 import signal
 import sys
 
@@ -20,6 +21,7 @@ class WsCeleryCommand(Command):
     def run_from_argv(self, prog_name, argv=None, **kwargs):
         self.apply_env_options()
         self.apply_options(prog_name, argv)
+        self.validate_options()
 
         self.setup_logging()
 
@@ -59,6 +61,15 @@ class WsCeleryCommand(Command):
     def apply_options(self, prog_name, argv):
         argv = list(filter(self.is_app_option, argv))
         parse_command_line([prog_name] + argv)
+
+    def validate_options(self):
+        origin = options.allow_origin
+        if origin is not None:
+            try:
+                re.compile(origin)
+            except Exception as e:
+                logger.exception(e)
+                self.die('Invalid `allow_origin` regex: r"%s"' % origin)
 
     def setup_logging(self):
         if options.debug and options.logging == 'info':

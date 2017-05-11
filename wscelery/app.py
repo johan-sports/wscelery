@@ -18,7 +18,7 @@ class WsCelery(tornado.web.Application):
         self.capp = capp or celery.Celery()
         self.events = EventHandler(self.capp, io_loop=self.io_loop)
 
-        kwargs.update(handlers=make_handlers(self.events))
+        kwargs.update(handlers=make_handlers(self.events, options))
         super().__init__(**kwargs)
 
         self.options = options

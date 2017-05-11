@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import logging
+import re
 
 import tornado.websocket
 
@@ -15,18 +16,22 @@ def parse_event(event):
         'pid',
         'queue',
         'exchange',
+        'args',
+        'kwargs',
     ))
 
 
 class WebSocketHandler(tornado.websocket.WebSocketHandler):
-    def initialize(self, events):
+    def initialize(self, events, allow_origin=None):
         self.task_id = None
         self.events = events
+        self.allow_origin = allow_origin
 
-    # Allow any origin for now
-    # FIXME: Security concern
     def check_origin(self, origin):
-        return True
+        if not self.allow_origin:
+            return super().check_origin(origin)
+        match = re.match(self.allow_origin, origin)
+        return match is not None
 
     def _handle_event(self, event):
         self.write_message(parse_event(event))

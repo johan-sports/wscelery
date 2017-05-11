@@ -7,6 +7,8 @@ define('address', default='',
        help='run on given address', type=str)
 define('debug', default=False,
        help='run in debug mode', type=bool)
+define('allow_origin', default=None,
+       help='regex for allowed origins')
 
 # TODO: Support SSL certs
 
