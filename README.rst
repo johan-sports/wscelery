@@ -2,6 +2,9 @@
 WS Celery
 =========
 
+.. image:: https://img.shields.io/pypi/v/wscelery.svg
+    :target: https://pypi.python.org/pypi/wscelery
+
 .. image:: https://travis-ci.org/johan-sports/wscelery.svg?branch=master
     :target: https://travis-ci.org/johan-sports/wscelery
 

@@ -29,7 +29,7 @@ setup(name='wscelery',
           'Development Status :: 3 - Alpha',
 
           # Intended audience
-          'Intended Audience - Developers',
+          'Intended Audience :: Developers',
           'Topic :: System :: Distributed Computing',
 
           # License
