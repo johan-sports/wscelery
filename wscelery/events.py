@@ -15,6 +15,7 @@ class EventMonitor(threading.Thread):
     max_events = 100
 
     def __init__(self, capp, io_loop):
+        """Monitors and stores events received from celery."""
         super().__init__()
         self.capp = capp
         self.io_loop = io_loop
@@ -80,6 +81,10 @@ class EventHandler:
 
     @tornado.gen.coroutine
     def start(self):
+        """Start event handler.
+
+        Expects to be run as a coroutine.
+        """
         self.timer.start()
         logger.debug('Starting celery monitor thread')
         self.monitor.start()
@@ -100,11 +105,12 @@ class EventHandler:
                 # too late or are re-requested.
                 if event['type'] in self.finished_events:
                     self.finished_tasks[task_id] = event
-                # FIXME: Should I be using the io_loop?
                 callback(event)
 
     def stop(self):
         self.timer.stop()
+        # FIXME: can not be stopped gracefully
+        # self.monitor.stop()
 
     def on_enable_events(self):
         """Called periodically to enable events for workers
