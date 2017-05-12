@@ -1,20 +1,13 @@
 from unittest import mock
 
-import celery
 from celery.bin.base import Command
-from tornado import testing
 from tornado.options import options
 
-from wscelery.app import WsCelery
+from wscelery.tests import AsyncHTTPTestCase
 from wscelery.command import WsCeleryCommand
-from wscelery.options import default_options
 
 
-class OptionsTestCase(testing.AsyncHTTPTestCase):
-    def get_app(self):
-        capp = celery.Celery()
-        return WsCelery(capp=capp, options=options or default_options)
-
+class OptionsTestCase(AsyncHTTPTestCase):
     def mock_option(self, name, value):
         return mock.patch.object(options.mockable(), name, value)
 
