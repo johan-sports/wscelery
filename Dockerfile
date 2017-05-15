@@ -17,4 +17,7 @@ EXPOSE 1337
 # Run as non-root user
 USER nobody
 
-ENTRYPOINT ["wscelery", "--broker=$BROKER_URL"]
+RUN mkdir -p /usr/src/app
+COPY tools/run_docker.sh /usr/src/app/run.sh
+
+CMD ["sh", "/usr/src/app/run.sh"]
