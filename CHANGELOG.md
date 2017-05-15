@@ -5,4 +5,9 @@ Based on [Changelog](http://keepachangelog.com/).
 
 **NO RELEASES YET**
 
+## [0.1.1]
+
+- Added support for celery v4
+
 [Unreleased]: https://github.com/johansports/wscelery/tree/master
+[0.1.1]: https://github.com/johansports/wscelery/tree/master
