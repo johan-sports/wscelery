@@ -17,4 +17,4 @@ EXPOSE 1337
 # Run as non-root user
 USER nobody
 
-ENTRYPOINT ["celery", "wscelery"]
+ENTRYPOINT ["wscelery", "--broker=$BROKER_URL"]
