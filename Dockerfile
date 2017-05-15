@@ -17,4 +17,4 @@ EXPOSE 1337
 # Run as non-root user
 USER nobody
 
-ENTRYPOINT ["wscelery"]
+ENTRYPOINT ["celery", "wscelery"]
