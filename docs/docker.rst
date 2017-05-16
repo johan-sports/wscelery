@@ -1,7 +1,7 @@
 Docker Usage
 ============
 
-WSCelery is has automatic builds on `DockerHub`__.  
+WSCelery is has automatic builds on `DockerHub`_.  
 
 Pull the image and start the container ::
 
