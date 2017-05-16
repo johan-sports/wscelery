@@ -33,7 +33,6 @@
 # ones.
 extensions = [
     'sphinx.ext.viewcode',
-    'sphinxcontrib.autohttp.tornado',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
