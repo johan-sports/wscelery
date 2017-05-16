@@ -48,6 +48,14 @@ To see all command options use: ::
 
     $ wscelery --help
 
+*************
+Documentation
+*************
+
+Full documentation can be found on `Read The Docs`_.
+
+.. _`Read The Docs`: https://wscelery.readthedocs.io
+
 *******
 Caveats
 *******
