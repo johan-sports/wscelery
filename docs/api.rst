@@ -28,12 +28,12 @@ task-sent
 .. code-block:: json
 
   {
-    "uuid": "",
+    "uuid": "bbef09c9-aff2-4f51-8238-d594fe16bc66",
     "type": "task-sent",
     "name": "myapp.add",
     "retries": 0,
     "eta": 32,
-    "routing_key": "",
+    "routing_key": "default",
     "root_id": 12,
     "parent_id": 15
   }
@@ -45,9 +45,11 @@ task-received
 .. code-block:: json
 
   {
-    "uuid": "",
+    "uuid": "bbef09c9-aff2-4f51-8238-d594fe16bc66",
     "type": "task-received",
-    "timestamp": ,
+    "timestamp": 1494943644.786262,
+    "local_received": 1494947444.446089,
+    "utcoffset": -2,
     "retries": 1,
     "root_id": 12,
     "parent_id": 15
@@ -60,9 +62,11 @@ task-started
 .. code-block:: json
 
   {
-    "uuid": "",
+    "uuid": "bbef09c9-aff2-4f51-8238-d594fe16bc66",
     "type": "task-received",
-    "timestamp": ,
+    "timestamp": 1494943644.786262,
+    "local_received": 1494947444.446089,
+    "utcoffset": -2
   }
 
 .. _task-succeeded:
@@ -72,11 +76,13 @@ task-succeeded
 .. code-block:: json
 
   {
-    "uuid": "",
+    "uuid": "bbef09c9-aff2-4f51-8238-d594fe16bc66",
     "type": "task-succeeded",
-    "timestamp": ,
+    "timestamp": 1494943644.786262,
+    "local_received": 1494947444.446089,
+    "utcoffset": -2,
     "result": "42",
-    "runtime": 5.32152
+    "runtime": 5.227228619001835
   }
 
 .. _task-failed:
@@ -86,9 +92,11 @@ task-failed
 .. code-block:: json
 
   {
-    "uuid": "",
+    "uuid": "bbef09c9-aff2-4f51-8238-d594fe16bc66",
     "type": "task-failed",
-    "timestamp": 
+    "timestamp": 1494943644.786262,
+    "local_received": 1494947444.446089,
+    "utcoffset": -2,
     "traceback": "...",
     "exception": "ValueError('oops')",
   }
@@ -100,7 +108,7 @@ task-rejected
 .. code-block:: json
 
   {
-    "uuid": "",
+    "uuid": "bbef09c9-aff2-4f51-8238-d594fe16bc66",
     "type": "task-rejected",
     "requeued": true,
   }
@@ -112,7 +120,7 @@ task-revoked
 .. code-block:: json
 
   {
-    "uuid": "",
+    "uuid": "bbef09c9-aff2-4f51-8238-d594fe16bc66",
     "type": "task-revoked",
     "terminated": true,
     "signum": 3,
@@ -126,9 +134,11 @@ task-retried
 .. code-block:: json
 
   {
-    "uuid": "",
+    "uuid": "bbef09c9-aff2-4f51-8238-d594fe16bc66",
     "type": "task-retried",
-    "timestamp": ,
+    "timestamp": 1494943644.786262,
+    "local_received": 1494947444.446089,
+    "utcoffset": -2,
     "exception": "ValueError('oops')",
     "traceback": "...",
   }
