@@ -8,6 +8,10 @@ WS Celery
 .. image:: https://travis-ci.org/johan-sports/wscelery.svg?branch=master
     :target: https://travis-ci.org/johan-sports/wscelery
 
+.. image:: https://readthedocs.org/projects/wscelery/badge/?version=latest
+    :target: http://wscelery.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
 Real time celery monitoring using websockets. Inspired by `flower <https://github.com/mher/flower>`__.
 
 ************
