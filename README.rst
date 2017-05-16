@@ -8,6 +8,10 @@ WS Celery
 .. image:: https://travis-ci.org/johan-sports/wscelery.svg?branch=master
     :target: https://travis-ci.org/johan-sports/wscelery
 
+.. image:: https://readthedocs.org/projects/wscelery/badge/?version=latest
+    :target: http://wscelery.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
 Real time celery monitoring using websockets. Inspired by `flower <https://github.com/mher/flower>`__.
 
 ************
@@ -48,11 +52,28 @@ To see all command options use: ::
 
     $ wscelery --help
 
+*************
+Documentation
+*************
+
+Full documentation can be found on `Read The Docs`_.
+
+.. _`Read The Docs`: https://wscelery.readthedocs.io
+
 *******
 Caveats
 *******
 
 * TLS encryption not (yet) supported
+
+************
+Contributing
+************
+
+If you want to contribute, feel free to submit a PR. Please make sure that the tests pass
+(run with ``python setup.py test``). Make sure you add your name to `CONTRIBUTORS`_.
+
+.. _`CONTRIBUTORS`: https://github.com/johan-sports/wscelery/blob/master/CONTRIBUTORS
 
 *******
 License

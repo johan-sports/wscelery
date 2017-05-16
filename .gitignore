@@ -2,3 +2,4 @@ __pycache__/
 build/
 dist/
 wscelery.egg-info/
+docs/_build
