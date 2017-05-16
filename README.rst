@@ -66,6 +66,15 @@ Caveats
 
 * TLS encryption not (yet) supported
 
+************
+Contributing
+************
+
+If you want to contribute, feel free to submit a PR. Please make sure that the tests pass
+(run with ``python setup.py test``). Make sure you add your name to `CONTRIBUTORS`_.
+
+.. _`CONTRIBUTORS`: https://github.com/johan-sports/wscelery/tree/master/CONTRIBUTORS
+
 *******
 License
 *******
