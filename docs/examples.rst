@@ -3,7 +3,7 @@ Examples
 
 All following examples are also available in the project `examples directory`_.
 
-.. _`examples directory`:: https://github.com/johan-sports/wscelery/tree/master/examples
+.. _`examples directory`: https://github.com/johan-sports/wscelery/tree/master/examples
 
 Setup
 -----
