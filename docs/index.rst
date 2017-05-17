@@ -11,7 +11,9 @@ Contents
    :maxdepth: 2
 
    install
+   quickstart
    config
+   examples
    api
    nginx
    docker
