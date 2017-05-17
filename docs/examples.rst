@@ -1,8 +1,14 @@
 Examples
 ========
 
+All following examples are also available in the project `examples directory`_.
+
+.. _`examples directory`:: https://github.com/johan-sports/wscelery/tree/master/examples
+
+Setup
+-----
+
 To run these examples we must first create a project with some celery tasks.
-This code can also be found in the `examples directory<https://github.com/johan-sports/wscelery/blob/master/examples/celery_app>`_.
 
 .. literalinclude:: ../examples/celery_app/tasks.py
    :language: python
@@ -47,8 +53,7 @@ Javascript
 ----------
 
 This code is intended to run in the browser. It will trigger the add task for
-given user input and report the finished status. The full source can be found
-in the `examples directory<https://github.com/johan-sports/wscelery/blob/master/examples/javascript>`_.
+given user input and report the finished status. 
 
 First we define a basic HTML file with a form and load jQuery:
 
@@ -62,6 +67,3 @@ a connection to wscelery and handle different message types reporting the curren
 .. literalinclude:: ../examples/javascript/client.js
    :language: javascript
    :caption: client.js
-
-Python
-------
