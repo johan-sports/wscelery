@@ -50,7 +50,6 @@ class EventMonitor(threading.Thread):
         self.io_loop.add_callback(self.events.put, event)
 
 
-# WARNING: This runs on a different thread, be wary when editing
 class EventHandler:
     events_enable_interval = 5000  # in seconds
     # Maximum number of finished items to keep track of
