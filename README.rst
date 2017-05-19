@@ -18,7 +18,7 @@ Real time celery monitoring using websockets. Inspired by `flower <https://githu
 Requirements 
 ************
 
-* Python 3.x
+* Python >= 3.3
 
 ************
 Installation
