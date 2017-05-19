@@ -95,15 +95,16 @@ class EventHandler:
             except KeyError:
                 continue
 
+            # Record finished tasks in-case they are requested
+            # too late or are re-requested.
+            if event['type'] in self.finished_events:
+                self.finished_tasks[task_id] = event
+
             try:
                 callback = self.listeners[task_id]
             except KeyError:
                 pass
             else:
-                # Record finished tasks in-case they are requested
-                # too late or are re-requested.
-                if event['type'] in self.finished_events:
-                    self.finished_tasks[task_id] = event
                 callback(event)
 
     def stop(self):
