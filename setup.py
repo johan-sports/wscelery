@@ -14,10 +14,10 @@ def get_requirements(filename):
 
 
 setup(name='wscelery',
-      version='0.1.1',
+      version='0.1.2',
       # Autor detauls
       author='Antonis Kalou',
-      author_email='antonis@johan-sports.com',
+      author_email='kalouantonis@gmail.com',
       # Project details
       description='Real time celery monitoring using websockets',
       long_description=long_description,
