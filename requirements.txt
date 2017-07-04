@@ -1,5 +1,5 @@
 tornado==4.5
 # Task queues
-celery>=4.0.2<5.0
+celery>=4.0.2,<5.0
 # Caching utilities
 cachetools==2.0.0
