@@ -58,7 +58,7 @@ author = 'Antonis Kalou'
 #
 # The short X.Y version.
 # TODO: Get from config
-version = '0.1.2'
+version = '0.1.3'
 # The full version, including alpha/beta/rc tags.
 release = version
 

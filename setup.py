@@ -14,7 +14,7 @@ def get_requirements(filename):
 
 
 setup(name='wscelery',
-      version='0.1.2',
+      version='0.1.3',
       # Autor detauls
       author='Antonis Kalou',
       author_email='kalouantonis@gmail.com',
