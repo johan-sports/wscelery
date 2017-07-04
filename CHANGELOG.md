@@ -7,6 +7,7 @@ Based on [Changelog](http://keepachangelog.com/).
 
 - Re-added support for celery v4
 - Added redis to docker image
+- Dropped support for python 3.3
 
 ## [0.1.2]
 
