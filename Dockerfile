@@ -6,7 +6,7 @@ MAINTAINER JOHAN Sports <antonis@johan-sports.com>
 RUN apk add --update ca-certificates && update-ca-certificates
 
 # Install required packages
-RUN pip install wscelery
+RUN pip install redis wscelery
 
 # Force stdin/stdout/stderr to be completelly unbuffered
 ENV PYTHONUNBUFFERED=1
